@@ -5,34 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: silim <silim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/11 19:45:16 by silim             #+#    #+#              #
-#    Updated: 2021/07/29 18:58:24 by silim            ###   ########.fr        #
+#    Created: 2021/07/11 19:44:05 by silim             #+#    #+#              #
+#    Updated: 2021/07/29 18:58:35 by silim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	ft_strlen.c \
-			ft_abs.c \
-			ft_atoi.c \
-			ft_isint.c \
-			ft_isnum.c \
-			ft_split.c \
-			ft_strdup.c \
-			ft_substr.c \
-			ft_strlcpy.c
+SRCS	=	srcs/main.c \
+			srcs/add_pop.c \
+			srcs/clear.c \
+			srcs/init_stack.c \
+			srcs/order_stack.c \
+			srcs/push_swap.c \
+			srcs/reverse_rotate.c \
+			srcs/rotate.c \
+			srcs/sort_stack.c
 
-OBJ	=	$(SRCS:.c=.o)
-NAME	=	libft.a
+OBJ		=	$(SRCS:.c=.o)
+NAME	=	push_swap
 CC		=	gcc -Wall -Werror -Wextra
+LIBFT	=	./libft/libft.a
 
 all		:	$(NAME)
 
-$(NAME): $(OBJ)
-		ar rcs $(NAME) $(OBJ)
+$(NAME)	:	$(OBJ)
+		make all -C libft/
+		$(CC) $(OBJ) $(LIBFT) -o $(NAME)
 
 clean	:
-		rm -f $(OBJ)
+			rm -f $(OBJ)
+			make clean -C libft/
 
-fclean	:	clean
-		rm -f $(NAME)
+fclean	:
+			rm -f $(OBJ)
+			rm -f $(NAME)
+			make fclean -C libft/
 
 re		:	fclean all
+
+.PHONY: all clean fclean re
