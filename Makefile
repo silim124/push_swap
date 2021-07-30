@@ -6,7 +6,7 @@
 #    By: silim <silim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 19:44:05 by silim             #+#    #+#              #
-#    Updated: 2021/07/29 18:58:35 by silim            ###   ########.fr        #
+#    Updated: 2021/07/30 17:43:56 by silim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,4 +42,4 @@ fclean	:
 
 re		:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY	: all clean fclean re
